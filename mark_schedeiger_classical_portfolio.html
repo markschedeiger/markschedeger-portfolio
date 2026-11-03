@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARK SCHEDEIGER | Nguyễn Phước Sang — Corporate Finance & FP&A Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond (Classical Serif), Plus Jakarta Sans (Body), JetBrains Mono (Figures/Roman) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            950: '#081912',
+                            900: '#0D261C',
+                            800: '#143628',
+                            700: '#1E4B38',
+                        },
+                        beige: {
+                            50: '#FAF7F2',
+                            100: '#F4EFE6',
+                            200: '#EAE2D3',
+                            300: '#DCD0BA',
+                        },
+                        gold: {
+                            300: '#DFC286',
+                            400: '#C5A059',
+                            500: '#A6823C',
+                            600: '#876627',
+                        },
+                        ink: '#15201B'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #F4EFE6;
+            --bg-secondary: #EAE2D3;
+            --bg-card: #FAF7F2;
+            --text-primary: #0D261C;
+            --text-secondary: #3A4D43;
+            --border-color: rgba(13, 38, 28, 0.2);
+            --accent-gold: #A6823C;
+            --highlight-emerald: #0D261C;
+        }
+
+        html.dark {
+            --bg-primary: #0D261C;
+            --bg-secondary: #081912;
+            --bg-card: #143628;
+            --text-primary: #F4EFE6;
+            --text-secondary: #C8D3CC;
+            --border-color: rgba(197, 160, 89, 0.28);
+            --accent-gold: #C5A059;
+            --highlight-emerald: #C5A059;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        /* Subtle Fine Art Paper Grain Overlay */
+        .paper-grain {
+            background-image: radial-gradient(rgba(13, 38, 28, 0.06) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        html.dark .paper-grain {
+            background-image: radial-gradient(rgba(197, 160, 89, 0.07) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Classical Double Frame Border */
+        .classical-frame {
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        .classical-frame::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
+        }
+
+        /* Ornamental Corner Flourishes */
+        .corner-ornament {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: var(--accent-gold);
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+        .corner-tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        /* Drop Cap Editorial Style */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            line-height: 0.82;
+            padding-top: 4px;
+            padding-right: 14px;
+            padding-bottom: 4px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #143628;
+            border: 1px solid #C5A059;
+            border-radius: 4px;
+        }
+
+        /* Wax Seal Button Animation */
+        .wax-seal {
+            box-shadow: 0 6px 20px -4px rgba(13, 38, 28, 0.5), inset 0 0 12px rgba(197, 160, 89, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .wax-seal:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 26px -4px rgba(13, 38, 28, 0.65), inset 0 0 16px rgba(197, 160, 89, 0.55);
+        }
+
+        /* Smooth Fade-in Animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="paper-grain antialiased selection:bg-emerald-900 selection:text-beige-100 dark:selection:bg-gold-400 dark:selection:text-emerald-950">
+
+    <!-- TOP EDITORIAL ARCHIVE RIBBON -->
+    <div class="w-full border-b border-emerald-900/15 dark:border-gold-400/20 bg-beige-200/70 dark:bg-emerald-950/80 py-2 px-4 sm:px-8 text-xs font-mono tracking-widest uppercase flex flex-wrap justify-between items-center gap-2">
+        <div class="flex items-center gap-3">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-800 dark:bg-gold-400 animate-pulse"></span>
+            <span data-i18n="top_issue">VOL. MMXXVI — SAIGON • ĐỒNG THÁP — PERSONAL DOSSIER</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6 opacity-80">
+            <span>HUB · TABP (CLASS OF 2030)</span>
+            <span>•</span>
+            <span>IBC SPECIALIZED DEPARTMENT</span>
+            <span>•</span>
+            <span>FP&A → CFO MASTER TRACK</span>
+        </div>
+    </div>
+
+    <!-- STICKY CLASSICAL NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-beige-100/90 dark:bg-emerald-900/90 border-b border-emerald-900/15 dark:border-gold-400/25 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Monogram -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-sm border border-emerald-900 dark:border-gold-400 flex items-center justify-center relative bg-emerald-900 text-beige-100 dark:bg-emerald-950 dark:text-gold-400 font-serif text-xl font-bold tracking-wider shadow-sm group-hover:scale-105 transition-transform">
+                    <span>M.S</span>
+                    <span class="absolute inset-0.5 border border-gold-400/40 pointer-events-none"></span>
+                </div>
+                <div>
+                    <span class="block font-serif text-xl sm:text-2xl font-bold tracking-widest uppercase leading-none">Mark Schedeiger</span>
+                    <span class="block font-mono text-[10px] tracking-[0.2em] uppercase opacity-75 mt-1">Nguyễn Phước Sang</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-widest">
+                <a href="#about" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_about">I. Giới Thiệu</a>
+                <a href="#pathway" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_pathway">II. Lộ Trình</a>
+                <a href="#works" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_works">III. Nghiên Cứu</a>
+                <a href="#atelier" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_skills">IV. Năng Lực</a>
+                <a href="#chronicle" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_chronicle">V. Biên Niên</a>
+                <a href="#contact" class="hover:text-gold-500 dark:hover:text-gold-300 transition-colors py-1" data-i18n="nav_contact">VI. Liên Hệ</a>
+            </nav>
+
+            <!-- Controls: Language & Theme Switcher -->
+            <div class="flex items-center gap-2.5">
+                <!-- Language Toggle -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded border border-emerald-900/30 dark:border-gold-400/40 text-xs font-mono uppercase tracking-wider hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-all flex items-center gap-1.5" title="Switch Language">
+                    <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                    <span id="langLabel">VI</span>
+                </button>
+
+                <!-- Theme Toggle (Beige Day vs Emerald Salon Night) -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="px-3.5 py-1.5 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 text-xs font-mono uppercase tracking-wider flex items-center gap-2 shadow-sm hover:opacity-90 transition-all" title="Switch Aesthetic Theme">
+                    <i id="themeIcon" data-lucide="moon" class="w-3.5 h-3.5"></i>
+                    <span id="themeText" class="hidden sm:inline" data-i18n="theme_btn_dark">Emerald Night</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded border border-emerald-900/25 dark:border-gold-400/30">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-emerald-900/15 dark:border-gold-400/20 bg-beige-100 dark:bg-emerald-950 px-6 py-5 space-y-3 font-mono text-xs uppercase tracking-widest">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 border-b border-emerald-900/10 dark:border-gold-400/10" data-i18n="nav_about">I. Giới Thiệu</a>
+            <a href="#pathway" onclick="toggleMobileMenu()" class="block py-2 border-b border-emerald-900/10 dark:border-gold-400/10" data-i18n="nav_pathway">II. Lộ Trình Chiến Lược</a>
+            <a href="#works" onclick="toggleMobileMenu()" class="block py-2 border-b border-emerald-900/10 dark:border-gold-400/10" data-i18n="nav_works">III. Dự Án Nghiên Cứu</a>
+            <a href="#atelier" onclick="toggleMobileMenu()" class="block py-2 border-b border-emerald-900/10 dark:border-gold-400/10" data-i18n="nav_skills">IV. Năng Lực & Công Cụ</a>
+            <a href="#chronicle" onclick="toggleMobileMenu()" class="block py-2 border-b border-emerald-900/10 dark:border-gold-400/10" data-i18n="nav_chronicle">V. Biên Niên Hoạt Động</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gold-600 dark:text-gold-400 font-semibold" data-i18n="nav_contact">VI. Thư Tín Liên Hệ</a>
+        </div>
+    </header>
+
+    <!-- MAIN EDITORIAL CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 pt-8 pb-24">
+
+        <!-- HERO SECTION: CLASSICAL MAGAZINE COVER -->
+        <section class="classical-frame bg-beige-50/70 dark:bg-emerald-900/60 p-6 sm:p-12 lg:p-16 rounded-sm shadow-sm mb-20 animate-fade-up">
+            <div class="corner-ornament corner-tl"></div>
+            <div class="corner-ornament corner-tr"></div>
+            <div class="corner-ornament corner-bl"></div>
+            <div class="corner-ornament corner-br"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Left Editorial Column (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1 rounded-full border border-emerald-900/30 dark:border-gold-400/40 bg-beige-200/60 dark:bg-emerald-950/60 text-xs font-mono uppercase tracking-widest text-emerald-900 dark:text-gold-300">
+                        <span>✦</span>
+                        <span data-i18n="hero_badge">Hồ Sơ Hoạch Định & Phân Tích Tài Chính Doanh Nghiệp (FP&A)</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-[4.15rem] font-semibold leading-[1.08] tracking-tight">
+                        <span data-i18n="hero_title_1">Nơi Kiến Trúc Tài Chính Giao Thoa Cùng</span>
+                        <span class="italic font-normal text-emerald-800 dark:text-gold-400 block mt-1" data-i18n="hero_title_2">Nghệ Thuật Quản Trị Cổ Điển.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg leading-relaxed opacity-85 max-w-2xl font-normal" data-i18n="hero_subtitle">
+                        Xin chào, tôi là <strong>Nguyễn Phước Sang (Mark Schedeiger)</strong> — sinh viên ngành Tài chính – Ngân hàng hệ Chất lượng cao Tiếng Anh (<strong>TABP</strong> — chương trình độc lập với Elite Class) tại Trường Đại học Ngân hàng TP.HCM (<strong>HUB</strong>). Kiên định theo đuổi lộ trình chuyên sâu <strong>FP&A (Financial Planning & Analysis) hướng tới vị trí Giám đốc Tài chính (CFO)</strong>.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="pt-3 flex flex-wrap items-center gap-4">
+                        <a href="#works" class="wax-seal px-7 py-3.5 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-xs uppercase tracking-widest font-medium flex items-center gap-2.5">
+                            <span data-i18n="hero_cta_primary">Khám Phá Nghiên Cứu</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                        <button onclick="openBriefModal()" class="px-6 py-3.5 rounded border border-emerald-900/40 dark:border-gold-400/50 hover:bg-emerald-900/5 dark:hover:bg-gold-400/10 font-mono text-xs uppercase tracking-widest transition-all flex items-center gap-2">
+                            <i data-lucide="scroll-text" class="w-4 h-4 text-gold-600 dark:text-gold-400"></i>
+                            <span data-i18n="hero_cta_secondary">Xem Tóm Tắt Hồ Sơ (CV Dossier)</span>
+                        </button>
+                    </div>
+
+                    <!-- Key Editorial Metrics Strip -->
+                    <div class="pt-6 border-t border-emerald-900/15 dark:border-gold-400/20 grid grid-cols-3 gap-4">
+                        <div>
+                            <span class="block font-mono text-xs uppercase tracking-wider opacity-65" data-i18n="stat_1_label">Lộ Trình Độc Tôn</span>
+                            <span class="font-serif text-xl sm:text-2xl font-bold text-emerald-900 dark:text-gold-400">FP&A → CFO</span>
+                        </div>
+                        <div>
+                            <span class="block font-mono text-xs uppercase tracking-wider opacity-65" data-i18n="stat_2_label">Chương Trình Đào Tạo</span>
+                            <span class="font-serif text-xl sm:text-2xl font-bold">HUB · TABP</span>
+                        </div>
+                        <div>
+                            <span class="block font-mono text-xs uppercase tracking-wider opacity-65" data-i18n="stat_3_label">Chuyên Môn Học Thuật</span>
+                            <span class="font-serif text-xl sm:text-2xl font-bold">IBC Specialized</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Classical Architectural Portrait Card (5 cols) -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none bg-emerald-900 text-beige-100 dark:bg-emerald-950 p-7 sm:p-9 rounded-sm border border-gold-400/40 shadow-xl overflow-hidden">
+                        <!-- Decorative Classical SVG Compass / Crest -->
+                        <svg class="absolute -right-12 -bottom-12 w-64 h-64 text-gold-400/10 pointer-events-none" viewBox="0 0 200 200" fill="none">
+                            <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="1"/>
+                            <circle cx="100" cy="100" r="70" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4"/>
+                            <circle cx="100" cy="100" r="45" stroke="currentColor" stroke-width="1"/>
+                            <path d="M100 0 L100 200 M0 100 L200 100 M29 29 L171 171 M171 29 L29 171" stroke="currentColor" stroke-width="0.75"/>
+                        </svg>
+
+                        <div class="flex justify-between items-start border-b border-gold-400/30 pb-5 mb-6">
+                            <div>
+                                <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-gold-400">THE PORTFOLIO LEDGER</p>
+                                <h2 class="font-serif text-2xl sm:text-3xl font-semibold mt-1">Mark Schedeiger</h2>
+                                <p class="font-serif italic text-gold-300 text-base">Nguyễn Phước Sang</p>
+                            </div>
+                            <span class="font-mono text-xs px-2.5 py-1 border border-gold-400/40 text-gold-300 rounded">Nº 2026-MS</span>
+                        </div>
+
+                        <!-- Classical Emblem / Visual Focal -->
+                        <div class="my-6 p-6 bg-emerald-950/80 border border-gold-400/25 rounded-sm text-center relative">
+                            <div class="w-20 h-20 mx-auto mb-4 rounded-full border border-gold-400/60 flex items-center justify-center bg-emerald-900/90 shadow-inner">
+                                <span class="font-serif text-3xl font-bold text-gold-400 tracking-wider">M·S</span>
+                            </div>
+                            <p class="font-serif italic text-lg text-beige-100 leading-snug" data-i18n="card_quote">
+                                "Đằng sau mỗi bản dự phóng ngân sách là một kiến trúc chiến lược đòi hỏi sự minh bạch, kỷ luật và chiều sâu thẩm mỹ."
+                            </p>
+                        </div>
+
+                        <!-- Structured Dossier Metadata -->
+                        <dl class="space-y-3 text-xs font-mono border-t border-gold-400/25 pt-5">
+                            <div class="flex justify-between py-1 border-b border-gold-400/10">
+                                <dt class="text-beige-300/70" data-i18n="meta_degree">HỌC VẤN:</dt>
+                                <dd class="text-right text-beige-100">Finance & Banking (TABP - HUB)</dd>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-gold-400/10">
+                                <dt class="text-beige-300/70" data-i18n="meta_club">TỔ CHỨC:</dt>
+                                <dd class="text-right text-gold-300">Ban Chuyên Môn — IBC Club</dd>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-gold-400/10">
+                                <dt class="text-beige-300/70" data-i18n="meta_stack">CÔNG CỤ FP&A:</dt>
+                                <dd class="text-right text-beige-100">Excel · Power BI · Python · SQL</dd>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <dt class="text-beige-300/70" data-i18n="meta_origin">ĐỊA ĐIỂM:</dt>
+                                <dd class="text-right text-beige-100">Đồng Tháp → TP. Hồ Chí Minh</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION I: ABOUT & EDITORIAL PHILOSOPHY -->
+        <section id="about" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION I · PROLOGUE</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-semibold tracking-tight" data-i18n="sec1_title">Triết Lý Nghiên Cứu & Bản Sắc Cá Nhân</h2>
+                </div>
+                <p class="font-serif italic text-lg opacity-75 mt-2 md:mt-0" data-i18n="sec1_sub">Sự giao thoa giữa phân tích định lượng và tư duy học thuật cổ điển</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <!-- Magazine 2-Column Editorial Text -->
+                <div class="lg:col-span-8 bg-beige-50/80 dark:bg-emerald-900/40 p-7 sm:p-10 rounded-sm border border-emerald-900/15 dark:border-gold-400/20 space-y-6 leading-relaxed text-base">
+                    <p class="drop-cap" data-i18n="about_p1">
+                        Khởi hành từ vùng đất Đồng Tháp đến môi trường học thuật năng động tại TP. Hồ Chí Minh, hành trình của tôi tại chương trình Cử nhân Tài chính – Ngân hàng Chất lượng cao Tiếng Anh (TABP) thuộc Trường Đại học Ngân hàng TP.HCM (HUB) được định hình bởi niềm đam mê giải mã cấu trúc vận hành của dòng vốn và hành vi thị trường.
+                    </p>
+                    <p data-i18n="about_p2">
+                        Tại <strong>Ban Chuyên Môn của Câu lạc bộ Ngân hàng Quốc tế (IBC)</strong> và qua vai trò <strong>Team Leader của nhóm FOURCE!</strong> tiến sâu vào Vòng 3 cuộc thi học thuật toàn trường, tôi rèn luyện phong cách làm việc kết hợp giữa tính chính xác của dữ liệu (Excel, Power BI, Python, SQL) với nghệ thuật dẫn dắt lập luận, đánh giá tính khả thi và bảo vệ quan điểm trước hội đồng phản biện.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-emerald-900/15 dark:border-gold-400/20">
+                        <div class="p-4 bg-beige-100/70 dark:bg-emerald-950/50 rounded border border-emerald-900/10 dark:border-gold-400/15">
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">01 / RIGOR</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1" data-i18n="pillar_1_title">Tư Duy Định Lượng</h3>
+                            <p class="text-xs opacity-80 mt-1" data-i18n="pillar_1_desc">Mô hình hóa tài chính, phân tích tính khả thi và bóc tách dữ liệu kinh tế vi mô.</p>
+                        </div>
+                        <div class="p-4 bg-beige-100/70 dark:bg-emerald-950/50 rounded border border-emerald-900/10 dark:border-gold-400/15">
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">02 / ETHICS</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1" data-i18n="pillar_2_title">Chuẩn Mực Quản Trị</h3>
+                            <p class="text-xs opacity-80 mt-1" data-i18n="pillar_2_desc">Đề cao đạo đức nghề nghiệp ngân hàng, bảo vệ quyền lợi nhà đầu tư và quản trị rủi ro.</p>
+                        </div>
+                        <div class="p-4 bg-beige-100/70 dark:bg-emerald-950/50 rounded border border-emerald-900/10 dark:border-gold-400/15">
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">03 / RHETORIC</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1" data-i18n="pillar_3_title">Nghệ Thuật Trình Bày</h3>
+                            <p class="text-xs opacity-80 mt-1" data-i18n="pillar_3_desc">Thiết kế hồ sơ thuyết trình cấp điều hành (Executive Deck) và dẫn dắt đội nhóm.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Personal Almanac Card -->
+                <div class="lg:col-span-4 space-y-5">
+                    <div class="p-7 rounded-sm bg-emerald-900 text-beige-100 dark:bg-emerald-950 border border-gold-400/30">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs uppercase tracking-widest text-gold-400" data-i18n="almanac_header">BẢN SẮC HỌC THUẬT</span>
+                            <i data-lucide="compass" class="w-4 h-4 text-gold-400"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3" data-i18n="almanac_title">Từ Kỷ Luật Thực Thi Đến Tầm Nhìn Chiến Lược</h3>
+                        <p class="text-xs leading-relaxed text-beige-200/85 mb-5" data-i18n="almanac_desc">
+                            Kinh nghiệm thực tế từ công việc vận hành dịch vụ khách hàng cường độ cao đến quản lý dự án học thuật giúp tôi giữ vững sự điềm tĩnh, quản trị thời gian tối ưu và phối hợp đa chiều dưới áp lực thời gian khắt khe.
+                        </p>
+                        <div class="p-3.5 bg-emerald-950/70 border border-gold-400/20 rounded text-xs font-mono space-y-1.5">
+                            <div class="flex justify-between">
+                                <span class="text-gold-300">CHƯƠNG TRÌNH:</span>
+                                <span>TABP (Distinct from Elite)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gold-300">NIÊN KHÓA:</span>
+                                <span>2026 – 2030 (HUB)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gold-300">TRỌNG TÂM:</span>
+                                <span>Corporate FP&A → CFO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION II: DEDICATED FP&A TO CFO MASTER ROADMAP -->
+        <section id="pathway" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION II · CORPORATE FINANCE ARCHITECTURE</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-semibold tracking-tight" data-i18n="sec2_title">Lộ Trình Sự Nghiệp Độc Tôn: FP&A Đến CFO</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 text-xs font-mono uppercase tracking-wider font-medium shadow-sm">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                        <span data-i18n="roadmap_badge">Single-Track Master Plan (5 Cấp Độ)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- 5-Stage Interactive Progression Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div onclick="selectStage(0)" id="stageCard0" class="stage-card cursor-pointer p-6 rounded-sm bg-beige-50/90 dark:bg-emerald-900/50 border-2 border-gold-500 dark:border-gold-400 relative group transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-gold-600 dark:text-gold-400 font-semibold">STAGE I</span>
+                        <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-emerald-900/10 dark:bg-gold-400/20">FOUNDATION</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mt-2">FP&A Analyst</h3>
+                    <p class="text-xs opacity-80 mt-2 leading-relaxed" data-i18n="fpa_stage_1">Xây dựng mô hình dự phóng ngân sách, báo cáo quản trị P&L, phân tích chênh lệch (Variance Analysis) bằng Excel, Power BI, SQL & Python.</p>
+                </div>
+
+                <div onclick="selectStage(1)" id="stageCard1" class="stage-card cursor-pointer p-6 rounded-sm bg-beige-50/90 dark:bg-emerald-900/50 border border-emerald-900/20 dark:border-gold-400/25 relative group hover:border-gold-500 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-gold-600 dark:text-gold-400">STAGE II</span>
+                        <span class="font-mono text-[10px] opacity-60">PARTNERING</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mt-2">Senior FP&A Analyst</h3>
+                    <p class="text-xs opacity-80 mt-2 leading-relaxed" data-i18n="fpa_stage_2">Tối ưu hóa Unit Economics, dự báo cuốn chiếu (Rolling Forecasts), tự động hóa dữ liệu và tham mưu tối ưu biên lợi nhuận.</p>
+                </div>
+
+                <div onclick="selectStage(2)" id="stageCard2" class="stage-card cursor-pointer p-6 rounded-sm bg-beige-50/90 dark:bg-emerald-900/50 border border-emerald-900/20 dark:border-gold-400/25 relative group hover:border-gold-500 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-gold-600 dark:text-gold-400">STAGE III</span>
+                        <span class="font-mono text-[10px] opacity-60">LEADERSHIP</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mt-2">FP&A Manager</h3>
+                    <p class="text-xs opacity-80 mt-2 leading-relaxed" data-i18n="fpa_stage_3">Dẫn dắt Finance Business Partnering, phân bổ vốn chiến lược (CAPEX), thẩm định tính khả thi và mô hình hóa kịch bản M&A.</p>
+                </div>
+
+                <div onclick="selectStage(3)" id="stageCard3" class="stage-card cursor-pointer p-6 rounded-sm bg-beige-50/90 dark:bg-emerald-900/50 border border-emerald-900/20 dark:border-gold-400/25 relative group hover:border-gold-500 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-gold-600 dark:text-gold-400">STAGE IV</span>
+                        <span class="font-mono text-[10px] opacity-60">GOVERNANCE</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mt-2">FP&A Director</h3>
+                    <p class="text-xs opacity-80 mt-2 leading-relaxed" data-i18n="fpa_stage_4">Kiến tạo cấu trúc tài chính toàn doanh nghiệp, hoạch định dài hạn (Long-Range Planning) và báo cáo trực tiếp cho Hội đồng Quản trị.</p>
+                </div>
+
+                <div onclick="selectStage(4)" id="stageCard4" class="stage-card cursor-pointer p-6 rounded-sm bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 border border-gold-400 shadow-md transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-gold-300 dark:text-emerald-900 font-semibold">APEX STAGE V</span>
+                        <i data-lucide="crown" class="w-4 h-4 text-gold-400 dark:text-emerald-950"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mt-2">Chief Financial Officer (CFO)</h3>
+                    <p class="text-xs opacity-90 mt-2 leading-relaxed" data-i18n="fpa_stage_5">Nhạc trưởng chiến lược tài chính doanh nghiệp, tối ưu cấu trúc vốn, quản trị rủi ro và kiến tạo giá trị bền vững.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Stage Deep-Dive Panel -->
+            <div id="stageDetailPanel" class="mt-6 classical-frame bg-beige-50/95 dark:bg-emerald-900/70 p-6 sm:p-8 rounded-sm border border-emerald-900/20 dark:border-gold-400/30">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-emerald-900/15 dark:border-gold-400/20 pb-4 lg:pb-0 lg:pr-6">
+                        <span id="detailStageTag" class="font-mono text-xs uppercase tracking-widest text-gold-600 dark:text-gold-400">STAGE I · OPERATIONAL EXCELLENCE</span>
+                        <h4 id="detailStageTitle" class="font-serif text-2xl sm:text-3xl font-bold mt-1">FP&A Analyst — Nền Tảng Hoạch Định & Mô Hình Hóa</h4>
+                        <p id="detailStageDesc" class="text-xs sm:text-sm opacity-85 mt-2 leading-relaxed">
+                            Làm chủ quy trình lập ngân sách hàng năm (AOP), dự phóng báo cáo tài chính 3 biểu mẫu (3-Statement Modeling) và giải trình biến động doanh thu – chi phí thực tế so với kế hoạch.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-4">
+                        <span class="font-mono text-[11px] uppercase tracking-wider opacity-70 block mb-2">TRỌNG TÂM ĐẦU RA & KPIs (DELIVERABLES)</span>
+                        <ul id="detailStageKPIs" class="space-y-1.5 text-xs font-mono">
+                            <li>• Budget vs. Actual (BvA) Variance Analysis</li>
+                            <li>• Monthly Management Reporting & P&L Decks</li>
+                            <li>• Working Capital & Cash Conversion Cycle Tracking</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-3">
+                        <span class="font-mono text-[11px] uppercase tracking-wider opacity-70 block mb-2">CÔNG CỤ CHỦ LỰC (CORE STACK)</span>
+                        <div id="detailStageStack" class="flex flex-wrap gap-1.5 font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950">Excel Modeling</span>
+                            <span class="px-2.5 py-1 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950">Power BI</span>
+                            <span class="px-2.5 py-1 rounded border border-emerald-900/30 dark:border-gold-400/40">SQL / Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION III: SELECTED WORKS & ACADEMIC CASE STUDIES -->
+        <section id="works" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION III · ARCHIVE OF WORKS</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-semibold tracking-tight" data-i18n="sec3_title">Dự Án Nghiên Cứu & Hồ Sơ Điển Hình</h2>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 font-mono text-xs">
+                    <button onclick="filterProjects('all')" class="proj-filter active px-3.5 py-1.5 rounded border border-emerald-900 dark:border-gold-400 bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950" data-filter="all" data-i18n="filter_all">Tất Cả (04)</button>
+                    <button onclick="filterProjects('behavioral')" class="proj-filter px-3.5 py-1.5 rounded border border-emerald-900/25 dark:border-gold-400/30 hover:border-emerald-900 dark:hover:border-gold-400" data-filter="behavioral" data-i18n="filter_behavioral">Hành Vi & TMĐT</button>
+                    <button onclick="filterProjects('banking')" class="proj-filter px-3.5 py-1.5 rounded border border-emerald-900/25 dark:border-gold-400/30 hover:border-emerald-900 dark:hover:border-gold-400" data-filter="banking" data-i18n="filter_banking">Ngân Hàng & Đạo Đức</button>
+                    <button onclick="filterProjects('economics')" class="proj-filter px-3.5 py-1.5 rounded border border-emerald-900/25 dark:border-gold-400/30 hover:border-emerald-900 dark:hover:border-gold-400" data-filter="economics" data-i18n="filter_econ">Kinh Tế Vi Mô & UX</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projectsGrid">
+
+                <!-- PROJECT 1: IBC COMPETITION FLAGSHIP -->
+                <article class="project-card classical-frame bg-beige-50/90 dark:bg-emerald-900/50 p-7 sm:p-9 rounded-sm flex flex-col justify-between transition-all hover:-translate-y-1" data-category="behavioral">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-600 dark:text-gold-400 mb-3">
+                            <span>CASE STUDY Nº I · IBC ROUND 3 FINALIST</span>
+                            <span class="px-2.5 py-0.5 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400/20 dark:text-gold-300">TEAM LEADER</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug mb-3" data-i18n="p1_title">
+                            Nghịch Lý "Săn Sale" Trong Thương Mại Điện Tử Tại Việt Nam
+                        </h3>
+                        <p class="text-sm opacity-85 leading-relaxed mb-5" data-i18n="p1_desc">
+                            Đề tài nghiên cứu học thuật xuất sắc tiến vào Vòng 3 cuộc thi của International Banking Club (IBC). Dẫn dắt đội <strong>FOURCE!</strong> phân tích cơ chế tâm lý tài chính hành vi đằng sau các chiến dịch khuyến mãi ảo, đánh giá tính khả thi của giải pháp minh bạch hóa giá và bảo vệ toàn trình trước hội đồng giám khảo.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 text-[11px] font-mono opacity-80">
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Behavioral Finance</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Feasibility Modeling</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Team Leadership</span>
+                        </div>
+                        <button onclick="openCaseModal('p1')" class="w-full py-3 rounded border border-emerald-900 dark:border-gold-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="btn_read_case">Đọc Hồ Sơ Nghiên Cứu Chi Tiết</span>
+                            <i data-lucide="book-open" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 2: BANCASSURANCE ETHICS -->
+                <article class="project-card classical-frame bg-beige-50/90 dark:bg-emerald-900/50 p-7 sm:p-9 rounded-sm flex flex-col justify-between transition-all hover:-translate-y-1" data-category="banking">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-600 dark:text-gold-400 mb-3">
+                            <span>CASE STUDY Nº II · BANKING GOVERNANCE</span>
+                            <span class="px-2.5 py-0.5 rounded border border-gold-500/40">ETHICS & RISK</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug mb-3" data-i18n="p2_title">
+                            Chuẩn Mực Đạo Đức & Quản Trị Rủi Ro Kênh Phân Phối Bancassurance
+                        </h3>
+                        <p class="text-sm opacity-85 leading-relaxed mb-5" data-i18n="p2_desc">
+                            Nghiên cứu đối chiếu chuyên sâu về thực trạng phân phối bảo hiểm qua ngân hàng (Bancassurance) tại thị trường Việt Nam. Phân tích các tình huống điển hình liên quan đến <strong>Manulife – SCB, Prudential, Sun Life, MB Ageas và BIDV MetLife</strong> dưới góc nhìn đạo đức tài chính và khung pháp lý bảo vệ người gửi tiền.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 text-[11px] font-mono opacity-80">
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Bancassurance</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Regulatory Compliance</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Banking Ethics</span>
+                        </div>
+                        <button onclick="openCaseModal('p2')" class="w-full py-3 rounded border border-emerald-900 dark:border-gold-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="btn_read_case">Đọc Hồ Sơ Nghiên Cứu Chi Tiết</span>
+                            <i data-lucide="book-open" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 3: GLOBAL APPAREL MICROECONOMICS -->
+                <article class="project-card classical-frame bg-beige-50/90 dark:bg-emerald-900/50 p-7 sm:p-9 rounded-sm flex flex-col justify-between transition-all hover:-translate-y-1" data-category="economics">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-600 dark:text-gold-400 mb-3">
+                            <span>CASE STUDY Nº III · MICROECONOMICS</span>
+                            <span class="px-2.5 py-0.5 rounded border border-gold-500/40">QUANTITATIVE</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug mb-3" data-i18n="p3_title">
+                            Cấu Trúc Thị Trường May Mặc Toàn Cầu & Chiến Lược Định Giá Vi Mô
+                        </h3>
+                        <p class="text-sm opacity-85 leading-relaxed mb-5" data-i18n="p3_desc">
+                            Báo cáo phân tích kinh tế học vi mô về phân bổ thị phần giữa các nhà cung ứng may mặc quốc tế. Đánh giá ma trận định giá phân biệt (Price Discrimination), mức độ khác biệt hóa sản phẩm và sức mạnh định giá trong chuỗi cung ứng thời trang toàn cầu.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 text-[11px] font-mono opacity-80">
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Market Share Modeling</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Price Elasticity</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Data Visualization</span>
+                        </div>
+                        <button onclick="openCaseModal('p3')" class="w-full py-3 rounded border border-emerald-900 dark:border-gold-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="btn_read_case">Đọc Hồ Sơ Nghiên Cứu Chi Tiết</span>
+                            <i data-lucide="book-open" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- PROJECT 4: SHOPEE UX/UI & CONVERSION FUNNEL -->
+                <article class="project-card classical-frame bg-beige-50/90 dark:bg-emerald-900/50 p-7 sm:p-9 rounded-sm flex flex-col justify-between transition-all hover:-translate-y-1" data-category="economics">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-gold-600 dark:text-gold-400 mb-3">
+                            <span>CASE STUDY Nº IV · DIGITAL ANALYTICS</span>
+                            <span class="px-2.5 py-0.5 rounded border border-gold-500/40">TRAFFIC & FUNNEL</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold leading-snug mb-3" data-i18n="p4_title">
+                            Phân Tích Kiến Trúc UX/UI & Lưu Lượng Chuyển Đổi Nền Tảng Shopee.vn
+                        </h3>
+                        <p class="text-sm opacity-85 leading-relaxed mb-5" data-i18n="p4_desc">
+                            Khảo sát dữ liệu lưu lượng truy cập (Traffic Metrics), tỷ lệ thoát trang và kiến trúc trải nghiệm người dùng trên Shopee.vn. Giải mã cách thiết kế giao diện Gamification tác động trực tiếp đến tần suất quay lại và giá trị đơn hàng trung bình (AOV).
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6 text-[11px] font-mono opacity-80">
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">Conversion Rate (CR)</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">UX/UI Architecture</span>
+                            <span class="px-2.5 py-1 border border-emerald-900/20 dark:border-gold-400/25 rounded">E-Commerce Metrics</span>
+                        </div>
+                        <button onclick="openCaseModal('p4')" class="w-full py-3 rounded border border-emerald-900 dark:border-gold-400 font-mono text-xs uppercase tracking-widest hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="btn_read_case">Đọc Hồ Sơ Nghiên Cứu Chi Tiết</span>
+                            <i data-lucide="book-open" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION IV: THE ATELIER OF CAPABILITIES & TOOLS -->
+        <section id="atelier" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION IV · TECHNICAL & ANALYTICAL LEDGER</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-semibold tracking-tight" data-i18n="sec4_title">Hệ Sinh Thái Năng Lực & Công Cụ Định Lượng</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Ledger Column 1: Data & Quantitative Stack -->
+                <div class="classical-frame bg-beige-50/80 dark:bg-emerald-900/40 p-7 rounded-sm">
+                    <div class="flex items-center justify-between border-b border-emerald-900/15 dark:border-gold-400/20 pb-4 mb-5">
+                        <div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">LEDGER I</span>
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="skill_col1_title">Phân Tích Dữ Liệu & Định Lượng</h3>
+                        </div>
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-gold-600 dark:text-gold-400"></i>
+                    </div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Microsoft Excel</span>
+                                <span class="text-xs opacity-75">Financial Modeling, Pivot, Variance Analysis</span>
+                            </div>
+                            <span class="font-mono text-xs px-2 py-0.5 bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 rounded">CORE</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Microsoft Power BI</span>
+                                <span class="text-xs opacity-75">Interactive KPI Dashboards & Data Visuals</span>
+                            </div>
+                            <span class="font-mono text-xs px-2 py-0.5 bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 rounded">BI</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Python & SQL</span>
+                                <span class="text-xs opacity-75">Data Querying, Quantitative Financial Scripts</span>
+                            </div>
+                            <span class="font-mono text-xs px-2 py-0.5 border border-emerald-900/30 dark:border-gold-400/40 rounded">QUANT</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ledger Column 2: Financial & Economic Domain -->
+                <div class="classical-frame bg-beige-50/80 dark:bg-emerald-900/40 p-7 rounded-sm">
+                    <div class="flex items-center justify-between border-b border-emerald-900/15 dark:border-gold-400/20 pb-4 mb-5">
+                        <div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">LEDGER II</span>
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="skill_col2_title">Nghiệp Vụ Tài Chính – Ngân Hàng</h3>
+                        </div>
+                        <i data-lucide="landmark" class="w-6 h-6 text-gold-600 dark:text-gold-400"></i>
+                    </div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">FP&A & Feasibility Study</span>
+                                <span class="text-xs opacity-75" data-i18n="s2_item1">Hoạch định ngân sách & Thẩm định tính khả thi</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">I</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Banking Ethics & Governance</span>
+                                <span class="text-xs opacity-75" data-i18n="s2_item2">Phân tích tuân thủ, rủi ro Bancassurance</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">II</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Microeconomic Market Analysis</span>
+                                <span class="text-xs opacity-75" data-i18n="s2_item3">Cấu trúc thị phần, co giãn giá & hành vi tiêu dùng</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">III</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ledger Column 3: Executive Workflow & Presentation -->
+                <div class="classical-frame bg-beige-50/80 dark:bg-emerald-900/40 p-7 rounded-sm">
+                    <div class="flex items-center justify-between border-b border-emerald-900/15 dark:border-gold-400/20 pb-4 mb-5">
+                        <div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">LEDGER III</span>
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="skill_col3_title">Quản Trị Dự Án & Trình Bày</h3>
+                        </div>
+                        <i data-lucide="feather" class="w-6 h-6 text-gold-600 dark:text-gold-400"></i>
+                    </div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Notion Systems Architecture</span>
+                                <span class="text-xs opacity-75" data-i18n="s3_item1">Tổ chức tiến độ nghiên cứu & lưu trữ học thuật</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">SYS</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Executive Slide Design (Canva / Deck)</span>
+                                <span class="text-xs opacity-75" data-i18n="s3_item2">Trực quan hóa luận điểm & thẩm mỹ cổ điển</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">ART</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-emerald-900/10 dark:border-gold-400/10 pb-2.5">
+                            <div>
+                                <span class="font-semibold block">Academic Defense & Leadership</span>
+                                <span class="text-xs opacity-75" data-i18n="s3_item3">Điều phối đội nhóm & phản biện tiếng Anh/Việt</span>
+                            </div>
+                            <span class="font-mono text-xs text-gold-600 dark:text-gold-400">LEAD</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION V: CHRONICLE OF EXPERIENCE & AFFILIATIONS -->
+        <section id="chronicle" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION V · CURRICULUM CHRONICLE</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-semibold tracking-tight" data-i18n="sec5_title">Biên Niên Sử Học Thuật & Hoạt Động</h2>
+            </div>
+
+            <div class="space-y-6 relative before:absolute before:top-2 before:bottom-2 before:left-4 sm:before:left-8 before:w-px before:bg-emerald-900/25 dark:before:bg-gold-400/30">
+                
+                <!-- Milestone I -->
+                <div class="relative pl-12 sm:pl-20">
+                    <div class="absolute left-1.5 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-[10px] flex items-center justify-center font-bold">I</div>
+                    <div class="p-6 rounded-sm bg-beige-50/80 dark:bg-emerald-900/40 border border-emerald-900/15 dark:border-gold-400/20">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-1">
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="exp1_role">Thành Viên Ban Chuyên Môn (Specialized Department)</h3>
+                            <span class="font-mono text-xs px-2.5 py-1 rounded bg-emerald-900/10 dark:bg-gold-400/15 text-emerald-900 dark:text-gold-300">International Banking Club (IBC) · HUB</span>
+                        </div>
+                        <p class="text-sm opacity-85 mt-2 leading-relaxed" data-i18n="exp1_desc">
+                            Tham gia biên soạn nội dung chuyên môn Tài chính – Ngân hàng, phát triển đề tài học thuật và tổ chức các hoạt động nghiên cứu chuyên sâu dành cho cộng đồng sinh viên Đại học Ngân hàng TP.HCM.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone II -->
+                <div class="relative pl-12 sm:pl-20">
+                    <div class="absolute left-1.5 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-[10px] flex items-center justify-center font-bold">II</div>
+                    <div class="p-6 rounded-sm bg-beige-50/80 dark:bg-emerald-900/40 border border-emerald-900/15 dark:border-gold-400/20">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-1">
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="exp2_role">Team Leader — Nhóm Nghiên Cứu FOURCE! (Top Vòng 3 IBC)</h3>
+                            <span class="font-mono text-xs px-2.5 py-1 rounded bg-emerald-900/10 dark:bg-gold-400/15 text-emerald-900 dark:text-gold-300">Academic Competition</span>
+                        </div>
+                        <p class="text-sm opacity-85 mt-2 leading-relaxed" data-i18n="exp2_desc">
+                            Định hướng cấu trúc đề tài "Nghịch lý săn sale trong Thương mại điện tử tại Việt Nam", trực tiếp phụ trách phần Mở đầu, Phân tích tính khả thi (Feasibility Analysis), Kết luận và điều phối phản biện toàn trình.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone III -->
+                <div class="relative pl-12 sm:pl-20">
+                    <div class="absolute left-1.5 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-[10px] flex items-center justify-center font-bold">III</div>
+                    <div class="p-6 rounded-sm bg-beige-50/80 dark:bg-emerald-900/40 border border-emerald-900/15 dark:border-gold-400/20">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-1">
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="exp3_role">Cử Nhân Tài Chính – Ngân Hàng (Hệ Chất Lượng Cao Tiếng Anh - TABP)</h3>
+                            <span class="font-mono text-xs px-2.5 py-1 rounded bg-emerald-900/10 dark:bg-gold-400/15 text-emerald-900 dark:text-gold-300">Đại học Ngân hàng TP.HCM (HUB) · Class of 2030</span>
+                        </div>
+                        <p class="text-sm opacity-85 mt-2 leading-relaxed" data-i18n="exp3_desc">
+                            Theo học chương trình Chất lượng cao bán phần tiếng Anh (TABP — phân biệt độc lập với chương trình Elite Class), tập trung chuyên sâu vào Tài chính doanh nghiệp, Hoạch định & Phân tích tài chính (FP&A), Kinh tế học vi mô và Quản trị ngân hàng; đồng thời tham gia ứng tuyển Ban Văn phòng Đoàn – Hội Khoa Tài chính.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone IV -->
+                <div class="relative pl-12 sm:pl-20">
+                    <div class="absolute left-1.5 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-[10px] flex items-center justify-center font-bold">IV</div>
+                    <div class="p-6 rounded-sm bg-beige-50/80 dark:bg-emerald-900/40 border border-emerald-900/15 dark:border-gold-400/20">
+                        <div class="flex flex-wrap justify-between items-center gap-2 mb-1">
+                            <h3 class="font-serif text-2xl font-bold" data-i18n="exp4_role">Vận Hành Dịch Vụ Khách Hàng & Thiết Kế Học Thuật</h3>
+                            <span class="font-mono text-xs px-2.5 py-1 rounded bg-emerald-900/10 dark:bg-gold-400/15 text-emerald-900 dark:text-gold-300">Trà Sữa Gia Truyền & English Academy (THPT Võ Thị Sáu)</span>
+                        </div>
+                        <p class="text-sm opacity-85 mt-2 leading-relaxed" data-i18n="exp4_desc">
+                            Rèn luyện kỷ luật lao động thực tế, khả năng xử lý tình huống dưới áp lực cao, quản trị thời gian và thiết kế ấn phẩm trình chiếu sự kiện cho câu lạc bộ học thuật tiếng Anh.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION VI: CLASSICAL CORRESPONDENCE & INQUIRY FORM -->
+        <section id="contact" class="py-16 border-t border-emerald-900/15 dark:border-gold-400/20">
+            <div class="classical-frame bg-beige-50/90 dark:bg-emerald-900/60 p-8 sm:p-12 lg:p-16 rounded-sm max-w-4xl mx-auto">
+                <div class="corner-ornament corner-tl"></div>
+                <div class="corner-ornament corner-tr"></div>
+                <div class="corner-ornament corner-bl"></div>
+                <div class="corner-ornament corner-br"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="font-mono text-xs uppercase tracking-[0.25em] text-gold-600 dark:text-gold-400 block mb-2">SECTION VI · PRIVATE CORRESPONDENCE</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-semibold" data-i18n="contact_title">Gửi Thư Tín & Trao Đổi Hợp Tác</h2>
+                    <p class="text-sm opacity-80 mt-3" data-i18n="contact_sub">
+                        Mọi lời mời hợp tác nghiên cứu học thuật, cơ hội thực tập FP&A / Tài chính Doanh nghiệp hoặc kết nối chuyên môn đều được trân trọng phản hồi.
+                    </p>
+                </div>
+
+                <form id="correspondenceForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-wider mb-2" data-i18n="form_name">Quý Danh / Tổ Chức *</label>
+                            <input type="text" id="senderName" required placeholder="Nguyễn Văn A / Khối Tài Chính Doanh Nghiệp..." class="w-full px-4 py-3 rounded-sm bg-beige-100/80 dark:bg-emerald-950/80 border border-emerald-900/25 dark:border-gold-400/30 focus:outline-none focus:border-gold-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-wider mb-2" data-i18n="form_email">Địa Chỉ Thư Điện Tử (Email) *</label>
+                            <input type="email" id="senderEmail" required placeholder="correspondence@domain.com" class="w-full px-4 py-3 rounded-sm bg-beige-100/80 dark:bg-emerald-950/80 border border-emerald-900/25 dark:border-gold-400/30 focus:outline-none focus:border-gold-500 text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-mono text-xs uppercase tracking-wider mb-2" data-i18n="form_subject">Chủ Đề Trao Đổi</label>
+                        <select id="senderSubject" class="w-full px-4 py-3 rounded-sm bg-beige-100/80 dark:bg-emerald-950/80 border border-emerald-900/25 dark:border-gold-400/30 focus:outline-none focus:border-gold-500 text-sm">
+                            <option value="fpa" data-i18n="opt_1">Cơ hội Thực tập / Tuyển dụng FP&A & Tài chính Doanh nghiệp</option>
+                            <option value="research" data-i18n="opt_2">Hợp tác Nghiên cứu Học thuật & Case Study</option>
+                            <option value="networking" data-i18n="opt_3">Kết nối Chuyên môn (IBC / HUB / Corporate Finance)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-mono text-xs uppercase tracking-wider mb-2" data-i18n="form_message">Nội Dung Thư Tín *</label>
+                        <textarea id="senderMessage" rows="4" required placeholder="Kính gửi Mark Schedeiger (Phước Sang)..." class="w-full px-4 py-3 rounded-sm bg-beige-100/80 dark:bg-emerald-950/80 border border-emerald-900/25 dark:border-gold-400/30 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                        <span class="font-mono text-xs opacity-70">✦ HO CHI MINH CITY · VIET NAM</span>
+                        <button type="submit" class="wax-seal w-full sm:w-auto px-8 py-4 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2.5">
+                            <i data-lucide="stamp" class="w-4 h-4"></i>
+                            <span data-i18n="form_submit">Niêm Phong & Gửi Thư</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Confirmation Banner (Hidden until submit) -->
+                <div id="formSuccessBox" class="hidden mt-6 p-6 rounded bg-emerald-900 text-beige-100 dark:bg-emerald-950 border border-gold-400 text-center space-y-2">
+                    <p class="font-serif text-2xl text-gold-400" data-i18n="msg_received_title">Thư Tín Đã Được Ghi Nhận Vào Sổ Lưu Trữ</p>
+                    <p class="text-xs opacity-90" id="formSuccessDetail"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CLASSICAL COLOPHON FOOTER -->
+    <footer class="border-t border-emerald-900/20 dark:border-gold-400/25 bg-beige-200/70 dark:bg-emerald-950 py-12 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono">
+            <div class="flex items-center gap-3">
+                <span class="w-7 h-7 rounded-sm bg-emerald-900 text-gold-400 border border-gold-400/50 flex items-center justify-center font-serif font-bold">M.S</span>
+                <span>© 2026 MARK SCHEDEIGER (NGUYỄN PHƯỚC SANG). ALL RIGHTS RESERVED.</span>
+            </div>
+            <div class="flex items-center gap-6 opacity-75">
+                <span>HO CHI MINH CITY UNIVERSITY OF BANKING (HUB · TABP)</span>
+                <span>•</span>
+                <span>CLASSICAL EDITION</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CASE STUDY / DOSSIER MODAL OVERLAY -->
+    <div id="caseModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-emerald-950/80 backdrop-blur-sm">
+        <div class="classical-frame bg-beige-50 dark:bg-emerald-900 text-emerald-950 dark:text-beige-100 max-w-2xl w-full p-7 sm:p-10 rounded-sm shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCaseModal()" class="absolute top-5 right-5 p-2 rounded border border-emerald-900/20 dark:border-gold-400/30 hover:bg-emerald-900 hover:text-beige-100 dark:hover:bg-gold-400 dark:hover:text-emerald-950 transition-colors">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <span id="modalSubtitle" class="font-mono text-xs uppercase tracking-widest text-gold-600 dark:text-gold-400 block mb-2">ARCHIVE DOSSIER</span>
+            <h3 id="modalTitle" class="font-serif text-2xl sm:text-4xl font-bold mb-4"></h3>
+            <div id="modalBody" class="space-y-4 text-sm leading-relaxed opacity-90 border-t border-emerald-900/15 dark:border-gold-400/20 pt-4"></div>
+            <div class="mt-8 pt-4 border-t border-emerald-900/15 dark:border-gold-400/20 flex justify-end">
+                <button onclick="closeCaseModal()" class="px-6 py-2.5 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950 font-mono text-xs uppercase tracking-wider">
+                    Đóng Hồ Sơ / Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE LOGIC: BILINGUAL DICTIONARY, CASE STUDIES, THEME & FILTERS -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        let currentLang = 'vi';
+
+        const i18nData = {
+            vi: {
+                top_issue: "VOL. MMXXVI — SÀI GÒN • ĐỒNG THÁP — HỒ SƠ HỌC THUẬT & QUẢN TRỊ",
+                nav_about: "I. Giới Thiệu",
+                nav_pathway: "II. Lộ Trình FP&A",
+                nav_works: "III. Nghiên Cứu",
+                nav_skills: "IV. Năng Lực",
+                nav_chronicle: "V. Biên Niên",
+                nav_contact: "VI. Liên Hệ",
+                theme_btn_dark: "Emerald Night",
+                theme_btn_light: "Beige Editorial",
+                hero_badge: "Hồ Sơ Hoạch Định & Phân Tích Tài Chính Doanh Nghiệp (FP&A)",
+                hero_title_1: "Nơi Kiến Trúc Tài Chính Giao Thoa Cùng",
+                hero_title_2: "Nghệ Thuật Quản Trị Cổ Điển.",
+                hero_subtitle: "Xin chào, tôi là <strong>Nguyễn Phước Sang (Mark Schedeiger)</strong> — sinh viên ngành Tài chính – Ngân hàng hệ Chất lượng cao Tiếng Anh (<strong>TABP</strong> — chương trình độc lập với Elite Class) tại Trường Đại học Ngân hàng TP.HCM (<strong>HUB</strong>). Kiên định theo đuổi lộ trình chuyên sâu <strong>FP&A (Financial Planning & Analysis) hướng tới vị trí Giám đốc Tài chính (CFO)</strong>.",
+                hero_cta_primary: "Khám Phá Nghiên Cứu",
+                hero_cta_secondary: "Xem Tóm Tắt Hồ Sơ (CV Dossier)",
+                stat_1_label: "Lộ Trình Độc Tôn",
+                stat_2_label: "Chương Trình Đào Tạo",
+                stat_3_label: "Chuyên Môn Học Thuật",
+                card_quote: "\"Đằng sau mỗi bản dự phóng ngân sách là một kiến trúc chiến lược đòi hỏi sự minh bạch, kỷ luật và chiều sâu thẩm mỹ.\"",
+                meta_degree: "HỌC VẤN:",
+                meta_club: "TỔ CHỨC:",
+                meta_stack: "CÔNG CỤ FP&A:",
+                meta_origin: "ĐỊA ĐIỂM:",
+                sec1_title: "Triết Lý Nghiên Cứu & Bản Sắc Cá Nhân",
+                sec1_sub: "Sự giao thoa giữa phân tích định lượng và tư duy quản trị tài chính cổ điển",
+                about_p1: "Khởi hành từ mảnh đất sen hồng Đồng Tháp đến môi trường học thuật năng động tại TP. Hồ Chí Minh, hành trình của tôi tại chương trình Cử nhân Tài chính – Ngân hàng Chất lượng cao Tiếng Anh (TABP — hệ đào tạo độc lập với Elite Class) thuộc Trường Đại học Ngân hàng TP.HCM (HUB) được định hình bởi niềm đam mê giải mã cấu trúc vận hành của dòng tiền doanh nghiệp và hành vi thị trường.",
+                about_p2: "Tại <strong>Ban Chuyên Môn của Câu lạc bộ Ngân hàng Quốc tế (IBC)</strong> và qua vai trò <strong>Team Leader của nhóm FOURCE!</strong> tiến sâu vào Vòng 3 cuộc thi học thuật toàn trường, tôi rèn luyện phong cách làm việc kết hợp giữa tính chính xác của dữ liệu (Excel, Power BI, Python, SQL) với nghệ thuật dẫn dắt lập luận, đánh giá tính khả thi (Feasibility Analysis) và bảo vệ quan điểm trước hội đồng phản biện.",
+                pillar_1_title: "Tư Duy Định Lượng",
+                pillar_1_desc: "Mô hình hóa tài chính, phân tích tính khả thi và bóc tách dữ liệu kinh tế vi mô.",
+                pillar_2_title: "Chuẩn Mực Quản Trị",
+                pillar_2_desc: "Đề cao đạo đức nghề nghiệp ngân hàng, minh bạch tài chính và kiểm soát rủi ro.",
+                pillar_3_title: "Nghệ Thuật Trình Bày",
+                pillar_3_desc: "Thiết kế hồ sơ thuyết trình cấp điều hành (Executive Deck) và dẫn dắt đội nhóm.",
+                almanac_header: "BẢN SẮC HỌC THUẬT",
+                almanac_title: "Từ Kỷ Luật Thực Thi Đến Tầm Nhìn CFO",
+                almanac_desc: "Kinh nghiệm thực tế từ công việc vận hành dịch vụ khách hàng cường độ cao đến quản lý dự án học thuật giúp tôi giữ vững sự điềm tĩnh, quản trị thời gian tối ưu và phối hợp đa chiều dưới áp lực thời gian khắt khe.",
+                sec2_title: "Lộ Trình Sự Nghiệp Độc Tôn: FP&A Đến CFO",
+                roadmap_badge: "Single-Track Master Plan (5 Cấp Độ)",
+                fpa_stage_1: "Xây dựng mô hình dự phóng ngân sách, báo cáo quản trị P&L, phân tích chênh lệch (Variance Analysis) bằng Excel, Power BI, SQL & Python.",
+                fpa_stage_2: "Tối ưu hóa Unit Economics, dự báo cuốn chiếu (Rolling Forecasts), tự động hóa dữ liệu và tham mưu tối ưu biên lợi nhuận.",
+                fpa_stage_3: "Dẫn dắt Finance Business Partnering, phân bổ vốn chiến lược (CAPEX), thẩm định tính khả thi và mô hình hóa kịch bản M&A.",
+                fpa_stage_4: "Kiến tạo cấu trúc tài chính toàn doanh nghiệp, hoạch định dài hạn (Long-Range Planning) và báo cáo trực tiếp cho Hội đồng Quản trị.",
+                fpa_stage_5: "Nhạc trưởng chiến lược tài chính doanh nghiệp, tối ưu cấu trúc vốn, quản trị rủi ro và kiến tạo giá trị bền vững.",
+                sec3_title: "Dự Án Nghiên Cứu & Hồ Sơ Điển Hình",
+                filter_all: "Tất Cả (04)",
+                filter_behavioral: "Hành Vi & TMĐT",
+                filter_banking: "Ngân Hàng & Đạo Đức",
+                filter_econ: "Kinh Tế Vi Mô & UX",
+                p1_title: "Nghịch Lý \"Săn Sale\" Trong Thương Mại Điện Tử Tại Việt Nam",
+                p1_desc: "Đề tài nghiên cứu học thuật xuất sắc tiến vào Vòng 3 cuộc thi của International Banking Club (IBC). Dẫn dắt đội <strong>FOURCE!</strong> phân tích cơ chế tâm lý hành vi đằng sau các chiến dịch khuyến mãi ảo, trực tiếp phụ trách Mở đầu, Phân tích Tính khả thi, Kết luận và bảo vệ toàn trình.",
+                p2_title: "Chuẩn Mực Đạo Đức & Quản Trị Rủi Ro Kênh Phân Phối Bancassurance",
+                p2_desc: "Nghiên cứu đối chiếu chuyên sâu về thực trạng phân phối bảo hiểm qua ngân hàng (Bancassurance) tại thị trường Việt Nam. Phân tích các tình huống điển hình liên quan đến <strong>Manulife – SCB, Prudential, Sun Life, MB Ageas và BIDV MetLife</strong> dưới góc nhìn đạo đức tài chính và khung pháp lý.",
+                p3_title: "Cấu Trúc Thị Trường May Mặc Toàn Cầu & Chiến Lược Định Giá Vi Mô",
+                p3_desc: "Báo cáo phân tích kinh tế học vi mô về phân bổ thị phần giữa các nhà cung ứng may mặc quốc tế. Đánh giá ma trận định giá phân biệt (Price Differentiation), mức độ khác biệt hóa sản phẩm và sức mạnh định giá trong chuỗi cung ứng.",
+                p4_title: "Phân Tích Kiến Trúc UX/UI & Lưu Lượng Chuyển Đổi Nền Tảng Shopee.vn",
+                p4_desc: "Khảo sát dữ liệu lưu lượng truy cập (Traffic Metrics), tỷ lệ thoát trang và kiến trúc trải nghiệm người dùng trên Shopee.vn. Giải mã cách thiết kế giao diện Gamification tác động trực tiếp đến tần suất quay lại và giá trị đơn hàng trung bình (AOV).",
+                btn_read_case: "Đọc Hồ Sơ Nghiên Cứu Chi Tiết",
+                sec4_title: "Hệ Sinh Thái Năng Lực & Công Cụ Định Lượng",
+                skill_col1_title: "Phân Tích Dữ Liệu & Định Lượng",
+                skill_col2_title: "Nghiệp Vụ Tài Chính – Ngân Hàng",
+                skill_col3_title: "Quản Trị Dự Án & Trình Bày",
+                sec5_title: "Biên Niên Sử Học Thuật & Hoạt Động",
+                exp1_role: "Thành Viên Ban Chuyên Môn (Specialized Department)",
+                exp1_desc: "Tham gia biên soạn nội dung chuyên môn Tài chính – Ngân hàng, phát triển đề tài học thuật và tổ chức các hoạt động nghiên cứu chuyên sâu dành cho cộng đồng sinh viên Đại học Ngân hàng TP.HCM.",
+                exp2_role: "Team Leader — Nhóm Nghiên Cứu FOURCE! (Top Vòng 3 IBC)",
+                exp2_desc: "Định hướng cấu trúc đề tài 'Nghịch lý săn sale trong Thương mại điện tử tại Việt Nam', trực tiếp phụ trách phần Mở đầu, Phân tích tính khả thi (Feasibility Analysis), Kết luận và điều phối phản biện toàn trình.",
+                exp3_role: "Cử Nhân Tài Chính – Ngân Hàng (Hệ Chất Lượng Cao Tiếng Anh - TABP)",
+                exp3_desc: "Theo học chương trình Chất lượng cao bán phần tiếng Anh (TABP — phân biệt độc lập với chương trình Elite Class), tập trung chuyên sâu vào Tài chính doanh nghiệp, Hoạch định & Phân tích tài chính (FP&A), Kinh tế học vi mô và Quản trị ngân hàng; đồng thời tham gia ứng tuyển Ban Văn phòng Đoàn – Hội Khoa Tài chính.",
+                exp4_role: "Vận Hành Dịch Vụ Khách Hàng & Thiết Kế Học Thuật",
+                exp4_desc: "Rèn luyện kỷ luật lao động thực tế, khả năng xử lý tình huống dưới áp lực cao, quản trị thời gian tại quầy Trà Sữa Gia Truyền và thiết kế slide trình chiếu, đồng tổ chức văn nghệ tại Học viện Tiếng Anh (THPT Võ Thị Sáu).",
+                contact_title: "Gửi Thư Tín & Trao Đổi Hợp Tác",
+                contact_sub: "Mọi lời mời hợp tác nghiên cứu học thuật, cơ hội thực tập FP&A / Tài chính Doanh nghiệp hoặc kết nối chuyên môn đều được trân trọng phản hồi.",
+                form_name: "Quý Danh / Tổ Chức *",
+                form_email: "Địa Chỉ Thư Điện Tử (Email) *",
+                form_subject: "Chủ Đề Trao Đổi",
+                form_message: "Nội Dung Thư Tín *",
+                form_submit: "Niêm Phong & Gửi Thư",
+                msg_received_title: "Thư Tín Đã Được Ghi Nhận Vào Sổ Lưu Trữ"
+            },
+            en: {
+                top_issue: "VOL. MMXXVI — SAIGON • ĐỒNG THÁP — PERSONAL DOSSIER",
+                nav_about: "I. Philosophy",
+                nav_pathway: "II. FP&A Roadmap",
+                nav_works: "III. Selected Works",
+                nav_skills: "IV. Atelier",
+                nav_chronicle: "V. Chronicle",
+                nav_contact: "VI. Correspondence",
+                theme_btn_dark: "Emerald Night",
+                theme_btn_light: "Beige Editorial",
+                hero_badge: "Corporate Financial Planning & Analysis (FP&A) Dossier",
+                hero_title_1: "Where Financial Architecture Meets",
+                hero_title_2: "Classical Executive Stewardship.",
+                hero_subtitle: "Greetings, I am <strong>Nguyễn Phước Sang (Mark Schedeiger)</strong> — a Bachelor of Finance & Banking candidate in the Partially English-Taught High Quality Program (<strong>TABP</strong> — distinct from the Elite Class) at Ho Chi Minh City University of Banking (<strong>HUB</strong>). Dedicated exclusively to the corporate finance trajectory from <strong>FP&A Analyst to Chief Financial Officer (CFO)</strong>.",
+                hero_cta_primary: "Explore Case Studies",
+                hero_cta_secondary: "Inspect Curriculum Dossier",
+                stat_1_label: "Dedicated Track",
+                stat_2_label: "Academic Program",
+                stat_3_label: "Affiliation",
+                card_quote: "\"Behind every corporate budget forecast lies a strategic architecture demanding transparency, rigor, and aesthetic clarity.\"",
+                meta_degree: "EDUCATION:",
+                meta_club: "AFFILIATION:",
+                meta_stack: "FP&A STACK:",
+                meta_origin: "PROVENANCE:",
+                sec1_title: "Research Philosophy & Intellectual Identity",
+                sec1_sub: "Synthesizing quantitative financial modeling with classical executive rhetoric",
+                about_p1: "Originating from Đồng Tháp province and advancing within Ho Chi Minh City's academic landscape, my tenure in the Partially English-Taught High Quality Finance & Banking Program (TABP — distinct from Elite Class) at Ho Chi Minh City University of Banking (HUB) is driven by an enduring inquiry into corporate cash flows, capital budgeting, and market behavior.",
+                about_p2: "Serving within the <strong>Specialized Department of the International Banking Club (IBC)</strong> and leading <strong>Team FOURCE!</strong> into Round 3 of the IBC Academic Competition, I combine empirical tools (Excel, Power BI, Python, SQL) with structured feasibility modeling and executive-level defense.",
+                pillar_1_title: "Quantitative Rigor",
+                pillar_1_desc: "Financial modeling, feasibility assessment, and microeconomic market decomposition.",
+                pillar_2_title: "Ethical Governance",
+                pillar_2_desc: "Upholding banking fiduciary ethics, corporate transparency, and institutional compliance.",
+                pillar_3_title: "Executive Rhetoric",
+                pillar_3_desc: "Crafting high-impact presentation decks and leading cross-functional academic teams.",
+                almanac_header: "ACADEMIC ALMANAC",
+                almanac_title: "From Operational Discipline to CFO Foresight",
+                almanac_desc: "Hands-on experience ranging from high-pressure customer operations to leading academic research teams has instilled resilience, structured time management, and composure under tight deadlines.",
+                sec2_title: "The Dedicated FP&A to CFO Master Roadmap",
+                roadmap_badge: "Single-Track Master Plan (5 Stages)",
+                fpa_stage_1: "Constructing budget projections, P&L management reporting, and variance analysis utilizing Excel, Power BI, SQL & Python.",
+                fpa_stage_2: "Optimizing unit economics, rolling forecasts, automating data pipelines, and advising business units on margin expansion.",
+                fpa_stage_3: "Leading Finance Business Partnering, strategic capital allocation (CAPEX), feasibility studies, and M&A scenario modeling.",
+                fpa_stage_4: "Architecting enterprise-wide financial frameworks, long-range planning (LRP), and executive board governance.",
+                fpa_stage_5: "Orchestrating corporate financial strategy, capital structure optimization, and sustainable enterprise value creation.",
+                sec3_title: "Selected Research Works & Case Studies",
+                filter_all: "All Works (04)",
+                filter_behavioral: "Behavioral & E-Commerce",
+                filter_banking: "Banking & Ethics",
+                filter_econ: "Microeconomics & UX",
+                p1_title: "The E-Commerce 'Discount Hunting' Paradox in Vietnam",
+                p1_desc: "Flagship research advancing to Round 3 of the International Banking Club (IBC) competition. Served as <strong>Team Leader of FOURCE!</strong>, directing the Introduction, Feasibility Analysis, Conclusion, and full-process defense examining behavioral traps in digital flash sales.",
+                p2_title: "Ethical Governance & Risk in Vietnam's Bancassurance Channel",
+                p2_desc: "Comparative regulatory and ethical investigation into bancassurance distribution across Vietnam. Examined real-world cases involving <strong>Manulife – SCB, Prudential, Sun Life, MB Ageas, and BIDV MetLife</strong> regarding fiduciary duty and depositor trust.",
+                p3_title: "Global Apparel Market Structure & Microeconomic Pricing",
+                p3_desc: "Microeconomic research analyzing global apparel supplier market shares, price discrimination matrices, product differentiation, and pricing power across international supply chains.",
+                p4_title: "E-Commerce UX/UI Architecture & Traffic Funnel (Shopee.vn)",
+                p4_desc: "Quantitative digital funnel evaluation of Shopee.vn, inspecting traffic metrics, bounce rates, and gamified user interface mechanisms driving retention and Average Order Value (AOV).",
+                btn_read_case: "Inspect Full Case Dossier",
+                sec4_title: "The Atelier of Capabilities & Quantitative Stack",
+                skill_col1_title: "Quantitative & Data Stack",
+                skill_col2_title: "Finance & Banking Domain",
+                skill_col3_title: "Workflow & Presentation Craft",
+                sec5_title: "Chronicle of Affiliations & Leadership",
+                exp1_role: "Member of Specialized Department (Ban Chuyên Môn)",
+                exp1_desc: "Developing specialized Finance & Banking academic publications, research topics, and analytical workshops for the student body at Ho Chi Minh City University of Banking.",
+                exp2_role: "Team Leader — Team FOURCE! (IBC Competition Round 3)",
+                exp2_desc: "Spearheaded the research project on Vietnam's E-Commerce Discount Paradox; authored the Introduction, Feasibility Study, and Conclusion while overseeing end-to-end team defense.",
+                exp3_role: "Bachelor of Finance & Banking (High Quality Program - TABP)",
+                exp3_desc: "Pursuing a Partially English-Taught High Quality curriculum (TABP — distinct from Elite Class) focused on Corporate Finance, FP&A, Microeconomics, and Banking Management; also applied for the Administration Department of the Faculty of Finance Student Union.",
+                exp4_role: "Customer Operations & Academic Visual Design",
+                exp4_desc: "Cultivated high-pressure operational discipline, teamwork, and time management at Trà Sữa Gia Truyền alongside slide architecture and cultural segment co-organization for the Võ Thị Sáu High School English Academy.",
+                contact_title: "Dispatch Private Correspondence",
+                contact_sub: "Inquiries regarding FP&A / Corporate Finance internships, academic research collaboration, or professional dialogue are warmly welcomed.",
+                form_name: "Full Name / Institution *",
+                form_email: "Electronic Mail Address *",
+                form_subject: "Subject of Inquiry",
+                form_message: "Message Contents *",
+                form_submit: "Seal & Dispatch Letter",
+                msg_received_title: "Correspondence Logged in Archive"
+            }
+        };
+
+        const caseStudyDetails = {
+            p1: {
+                subtitle: "CASE DOSSIER Nº I · IBC ROUND 3 FINALIST (TEAM FOURCE!)",
+                title: "Nghịch Lý 'Săn Sale' Trong Thương Mại Điện Tử Tại Việt Nam (The E-Commerce Discount Paradox)",
+                body: `
+                    <p><strong>Vai trò (Role):</strong> Team Leader (Đội trưởng nhóm FOURCE!) — Trực tiếp xây dựng Mở đầu, Phân tích Tính khả thi (Feasibility Analysis), Kết luận và kiểm soát toàn bộ quy trình phản biện.</p>
+                    <p><strong>Bối cảnh & Vấn đề cốt lõi:</strong> Sự bùng nổ của các chiến dịch siêu khuyến mãi ngày đôi (9.9, 11.11, 12.12) tại Việt Nam tạo ra hiệu ứng tâm lý FOMO mạnh mẽ. Tuy nhiên, nghiên cứu chỉ ra nghịch lý: người tiêu dùng tưởng rằng mình tiết kiệm được chi phí nhưng thực chất lại chi tiêu vượt ngân sách cá nhân cho các sản phẩm bị "neo giá ảo" (Artificial Price Anchoring).</p>
+                    <p><strong>Đóng góp Chuyên môn (Feasibility & Financial Impact):</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Đánh giá tính khả thi về mặt tài chính và vận hành đối với các công cụ theo dõi lịch sử biến động giá minh bạch.</li>
+                        <li>Phân tích tác động dài hạn đến biên lợi nhuận của nhà bán lẻ (Sellers) và lòng trung thành của người tiêu dùng trên sàn TMĐT.</li>
+                        <li>Bảo vệ thành công luận điểm và tiến sâu vào <strong>Vòng 3 Cuộc thi Học thuật của International Banking Club (IBC)</strong>.</li>
+                    </ul>
+                `
+            },
+            p2: {
+                subtitle: "CASE DOSSIER Nº II · BANKING ETHICS & REGULATORY GOVERNANCE",
+                title: "Chuẩn Mực Đạo Đức & Quản Trị Rủi Ro Trong Phân Phối Bảo Hiểm Qua Ngân Hàng (Bancassurance)",
+                body: `
+                    <p><strong>Trọng tâm Nghiên cứu:</strong> Phân tích đa chiều cuộc khủng hoảng niềm tin trong kênh phân phối Bancassurance tại Việt Nam thông qua chuỗi tình huống thực tế của <strong>Manulife, SCB, Prudential, Sun Life, MB Ageas và BIDV MetLife</strong>.</p>
+                    <p><strong>Khung Phân Tích Chuyên Môn:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Xung đột lợi ích (Agency Problem):</strong> Áp lực chỉ tiêu doanh số (KPIs) ngắn hạn khiến một bộ phận nhân viên tư vấn làm mờ ranh giới giữa sản phẩm "Tiết kiệm ngân hàng" và "Bảo hiểm liên kết đầu tư".</li>
+                        <li><strong>Rủi ro danh tiếng & Thanh khoản:</strong> Hệ lụy tài chính khi niềm tin của người gửi tiền bị tổn thương, kéo theo chi phí tuân thủ và giám sát pháp lý tăng cao.</li>
+                        <li><strong>Khuyến nghị Quản trị:</strong> Chuẩn hóa quy trình ghi âm tư vấn, tách bạch quầy giao dịch tiết kiệm và bảo hiểm, đồng thời siết chặt đạo đức nghề nghiệp ngân hàng.</li>
+                    </ul>
+                `
+            },
+            p3: {
+                subtitle: "CASE DOSSIER Nº III · MICROECONOMIC MARKET MODELING",
+                title: "Cấu Trúc Thị Trường May Mặc Toàn Cầu & Chiến Lược Định Giá Phân Biệt",
+                body: `
+                    <p><strong>Trọng tâm Nghiên cứu:</strong> Ứng dụng lý thuyết Kinh tế học Vi mô (Microeconomics) để giải mã cấu trúc cạnh tranh độc quyền nhóm (Oligopoly) và cạnh tranh có tính độc quyền (Monopolistic Competition) trong ngành công nghiệp may mặc toàn cầu.</p>
+                    <p><strong>Nội dung Định lượng & Chiến lược:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Phân tích sự phân bổ thị phần (Market Share Distribution) giữa các tập đoàn thời trang nhanh và các nhà cung ứng OEM/ODM khu vực châu Á.</li>
+                        <li>Đánh giá cơ chế <strong>Định giá phân biệt (Price Differentiation)</strong> theo phân khúc độ co giãn cầu và khu vực địa lý.</li>
+                        <li>Vai trò của khác biệt hóa sản phẩm (Product Differentiation) trong việc bảo vệ biên lợi nhuận gộp trước áp lực lạm phát chi phí nguyên vật liệu.</li>
+                    </ul>
+                `
+            },
+            p4: {
+                subtitle: "CASE DOSSIER Nº IV · DIGITAL MARKETING & CONVERSION ANALYTICS",
+                title: "Phân Tích Kiến Trúc UX/UI & Lưu Lượng Chuyển Đổi Trên Nền Tảng Shopee.vn",
+                body: `
+                    <p><strong>Trọng tâm Nghiên cứu:</strong> Đánh giá hiệu quả thiết kế trải nghiệm người dùng (UX/UI) và các chỉ số lưu lượng truy cập (Traffic & Funnel Metrics) của sàn thương mại điện tử có thị phần lớn nhất Việt Nam.</p>
+                    <p><strong>Phát hiện Cốt lõi:</strong></p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Phân tích hành trình người dùng từ điểm chạm hiển thị (Impression) đến hành vi thêm vào giỏ hàng (Add-to-Cart) và thanh toán hoàn tất.</li>
+                        <li>Đo lường tác động của hệ sinh thái Gamification & Livestream đến thời gian lưu lại ứng dụng (Session Duration) và tần suất mua lặp lại.</li>
+                        <li>Đề xuất tối ưu hóa bố cục thông tin nhằm giảm tỷ lệ hủy giỏ hàng (Cart Abandonment Rate).</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Toggle Dark/Light Theme (Beige Day vs Deep Emerald Night)
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const isDark = htmlEl.classList.toggle('dark');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+
+            if (isDark) {
+                themeIcon.setAttribute('data-lucide', 'sun');
+                themeText.textContent = i18nData[currentLang].theme_btn_light;
+            } else {
+                themeIcon.setAttribute('data-lucide', 'moon');
+                themeText.textContent = i18nData[currentLang].theme_btn_dark;
+            }
+            lucide.createIcons();
+        }
+
+        // Switch Language VI <-> EN
+        function toggleLanguage() {
+            currentLang = currentLang === 'vi' ? 'en' : 'vi';
+            document.getElementById('langLabel').textContent = currentLang.toUpperCase();
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18nData[currentLang][key]) {
+                    el.innerHTML = i18nData[currentLang][key];
+                }
+            });
+        }
+
+        // Interactive 5-Stage FP&A -> CFO Roadmap Inspector
+        const fpaStageDetails = [
+            {
+                tag: "STAGE I · OPERATIONAL EXCELLENCE",
+                title: "FP&A Analyst — Nền Tảng Hoạch Định & Mô Hình Hóa",
+                desc: "Làm chủ quy trình lập ngân sách hàng năm (AOP), dự phóng báo cáo tài chính 3 biểu mẫu (3-Statement Modeling) và giải trình biến động doanh thu – chi phí thực tế so với kế hoạch.",
+                kpis: [
+                    "• Budget vs. Actual (BvA) Variance Analysis",
+                    "• Monthly Management Reporting & P&L Decks",
+                    "• Working Capital & Cash Conversion Cycle Tracking"
+                ],
+                stack: ["Excel Modeling", "Power BI", "SQL / Python"]
+            },
+            {
+                tag: "STAGE II · ANALYTICAL PARTNERING",
+                title: "Senior FP&A Analyst — Tối Ưu Hóa Hiệu Suất Đơn Vị",
+                desc: "Phối hợp trực tiếp với các phòng ban vận hành để bóc tách Unit Economics, xây dựng mô hình dự báo cuốn chiếu (Rolling Forecasts) và tự động hóa luồng dữ liệu báo cáo.",
+                kpis: [
+                    "• Rolling 12-Month Cash Flow & Margin Forecasting",
+                    "• Product & Channel Profitability Decomposition",
+                    "• Automated BI Dashboards & SQL Data Pipelines"
+                ],
+                stack: ["Advanced Power BI", "Python (Pandas)", "SQL", "Notion"]
+            },
+            {
+                tag: "STAGE III · STRATEGIC BUSINESS PARTNERING",
+                title: "FP&A Manager — Quản Trị Phân Bổ Vốn & Kịch Bản Chiến Lược",
+                desc: "Đóng vai trò đối tác chiến lược tài chính (Finance Business Partner), thẩm định hiệu quả đầu tư vốn (CAPEX / NPV / IRR) và mô hình hóa kịch bản tài chính đa chiều.",
+                kpis: [
+                    "• Capital Expenditure (CAPEX) & Feasibility Modeling",
+                    "• Multi-Scenario Stress Testing & Sensitivity Analysis",
+                    "• Cross-Functional Cost Optimization Programs"
+                ],
+                stack: ["Financial Architecture", "Scenario Modeling", "Executive Deck"]
+            },
+            {
+                tag: "STAGE IV · ENTERPRISE FINANCIAL ARCHITECTURE",
+                title: "FP&A Director — Hoạch Định Dài Hạn & Quản Trị Cấp Cao",
+                desc: "Định hình kế hoạch tài chính dài hạn 3–5 năm (Long-Range Planning), thiết lập chuẩn mực quản trị hiệu suất toàn công ty và tham mưu trực tiếp cho Ban Tổng Giám đốc.",
+                kpis: [
+                    "• Multi-Year Long-Range Planning (LRP) Architecture",
+                    "• Board of Directors Financial Presentations",
+                    "• Enterprise Capital Efficiency & ROIC Governance"
+                ],
+                stack: ["Enterprise LRP", "Board Governance", "Capital Allocation"]
+            },
+            {
+                tag: "APEX STAGE V · EXECUTIVE STEWARDSHIP",
+                title: "Chief Financial Officer (CFO) — Nhạc Trưởng Chiến Lược Tài Chính",
+                desc: "Chịu trách nhiệm toàn diện về sức khỏe tài chính, cấu trúc vốn, quản trị rủi ro doanh nghiệp và dẫn dắt chiến lược tăng trưởng bền vững dài hạn.",
+                kpis: [
+                    "• Corporate Capital Structure & Liquidity Stewardship",
+                    "• Enterprise Value Creation & Strategic Governance",
+                    "• Ethical Fiduciary Leadership & Stakeholder Trust"
+                ],
+                stack: ["CFO Stewardship", "Corporate Strategy", "Fiduciary Ethics"]
+            }
+        ];
+
+        function selectStage(index) {
+            const stage = fpaStageDetails[index];
+            if (!stage) return;
+
+            document.getElementById('detailStageTag').textContent = stage.tag;
+            document.getElementById('detailStageTitle').textContent = stage.title;
+            document.getElementById('detailStageDesc').textContent = stage.desc;
+
+            const kpiList = document.getElementById('detailStageKPIs');
+            kpiList.innerHTML = stage.kpis.map(item => `<li>${item}</li>`).join('');
+
+            const stackBox = document.getElementById('detailStageStack');
+            stackBox.innerHTML = stage.stack.map(s => `<span class="px-2.5 py-1 rounded bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950">${s}</span>`).join('');
+
+            for (let i = 0; i < 5; i++) {
+                const card = document.getElementById('stageCard' + i);
+                if (!card) continue;
+                if (i === index) {
+                    card.classList.add('ring-2', 'ring-gold-500');
+                } else {
+                    card.classList.remove('ring-2', 'ring-gold-500');
+                }
+            }
+        }
+
+        // Filter Projects by Category
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.proj-filter');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.className = "proj-filter active px-3.5 py-1.5 rounded border border-emerald-900 dark:border-gold-400 bg-emerald-900 text-beige-100 dark:bg-gold-400 dark:text-emerald-950";
+                } else {
+                    btn.className = "proj-filter px-3.5 py-1.5 rounded border border-emerald-900/25 dark:border-gold-400/30 hover:border-emerald-900 dark:hover:border-gold-400";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open Project Case Modal
+        function openCaseModal(projectId) {
+            const data = caseStudyDetails[projectId];
+            if (!data) return;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalBody').innerHTML = data.body;
+            const modal = document.getElementById('caseModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Open Executive CV Brief Modal
+        function openBriefModal() {
+            document.getElementById('modalSubtitle').textContent = "CURRICULUM VITAE BRIEF · MARK SCHEDEIGER";
+            document.getElementById('modalTitle').textContent = "Nguyễn Phước Sang (Mark Schedeiger) — Executive Summary";
+            document.getElementById('modalBody').innerHTML = `
+                <div class="space-y-3 text-sm">
+                    <p><strong>Họ và tên:</strong> Nguyễn Phước Sang (Mark Schedeiger) — Quê quán: Đồng Tháp, sinh sống tại TP. Hồ Chí Minh.</p>
+                    <p><strong>Học vấn:</strong> Cử nhân Tài chính – Ngân hàng (Hệ Chất lượng cao Tiếng Anh - TABP, chương trình độc lập với Elite Class), Trường Đại học Ngân hàng TP.HCM (HUB), Niên khóa 2026–2030.</p>
+                    <p><strong>Tổ chức Chuyên môn:</strong> Thành viên Ban Chuyên Môn — Câu lạc bộ Ngân hàng Quốc tế (International Banking Club - IBC).</p>
+                    <p><strong>Lộ trình Sự nghiệp Độc tôn:</strong> FP&A Analyst → Senior FP&A Analyst → FP&A Manager → FP&A Director → Chief Financial Officer (CFO).</p>
+                    <p><strong>Kỹ năng Định lượng & Công cụ:</strong> Microsoft Excel, Power BI, Python, SQL, Notion, Canva.</p>
+                    <p><strong>Thành tích & Dự án tiêu biểu:</strong> Team Leader nhóm FOURCE! (Vòng 3 Cuộc thi Học thuật IBC — Nghiên cứu Nghịch lý Săn sale TMĐT); Nghiên cứu Đạo đức Bancassurance (Manulife, SCB, Prudential, Sun Life, MB Ageas, BIDV MetLife); Phân tích Vi mô ngành May mặc toàn cầu; Phân tích UX/UI & Lưu lượng Shopee.vn.</p>
+                </div>
+            `;
+            const modal = document.getElementById('caseModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCaseModal() {
+            const modal = document.getElementById('caseModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Handle Classical Correspondence Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const box = document.getElementById('formSuccessBox');
+            const detail = document.getElementById('formSuccessDetail');
+
+            detail.textContent = currentLang === 'vi'
+                ? `Cảm ơn ${name} (${email}). Bức thư của bạn đã được chuyển tới hộp thư của Nguyễn Phước Sang (Mark Schedeiger).`
+                : `Thank you, ${name} (${email}). Your dispatch has been logged for Mark Schedeiger (Nguyễn Phước Sang).`;
+
+            box.classList.remove('hidden');
+            document.getElementById('correspondenceForm').reset();
+        }
+    </script>
+</body>
+</html>
